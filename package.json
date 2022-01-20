@@ -24,6 +24,8 @@
     "forEachAsync": "^3.0.0",
     "redis": "^2.8.0",
     "redis-clustr": "^1.6.0",
-    "tiny-json-http": "^7.0.0"
+    "tiny-json-http": "^7.0.0",
+    "elasticsearch": "^16.7.2",
+    "http-aws-es": "^6.0.0"
   }
 }
