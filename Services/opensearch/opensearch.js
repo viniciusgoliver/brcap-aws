@@ -1,8 +1,8 @@
-const elasticsearch = require("elasticsearch");
+require("dotenv").config();
 const AWS = require("aws-sdk");
-const ESDomain = "http://localhost:9200";
+const elasticsearch = require("elasticsearch");
 const elasticClient = elasticsearch.Client({
-  hosts: [ESDomain],
+  hosts: [process.env.OPENSEARCH_DOMAIN],
   log: "error",
   version: "7.10",
 });

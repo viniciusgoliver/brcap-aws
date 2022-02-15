@@ -21,11 +21,12 @@
   "homepage": "https://github.com/brasilcap/brcap-aws#readme",
   "dependencies": {
     "aws-sdk": "2.176.0",
+    "dotenv": "^16.0.0",
+    "elasticsearch": "^16.7.2",
     "forEachAsync": "^3.0.0",
+    "http-aws-es": "^6.0.0",
     "redis": "^2.8.0",
     "redis-clustr": "^1.6.0",
-    "tiny-json-http": "^7.0.0",
-    "elasticsearch": "^16.7.2",
-    "http-aws-es": "^6.0.0"
+    "tiny-json-http": "^7.0.0"
   }
 }
