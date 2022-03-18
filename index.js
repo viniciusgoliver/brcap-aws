@@ -178,16 +178,24 @@ exports.Kms_decrypt = function (params, region, callback) {
   });
 };
 
-exports.OpenSearch_create = (index, type, region, body) => {
-  new OpenSearch(region).create(index, type, body);
+exports.OpenSearch_create = (properties, index, type, region, body) => {
+  new OpenSearch(region, properties.OPENSEARCH_DOMAIN).create(
+    index,
+    type,
+    body
+  );
 };
 
-exports.OpenSearch_getById = (index, type, region, id) => {
-  new OpenSearch(region).getById(index, type, id);
+exports.OpenSearch_getById = (properties, index, type, region, id) => {
+  new OpenSearch(region, properties.OPENSEARCH_DOMAIN).getById(index, type, id);
 };
 
-exports.OpenSearch_getFilter = (index, type, region, filter) => {
-  new OpenSearch(region).getFilter(index, type, filter);
+exports.OpenSearch_getFilter = (properties, index, type, region, filter) => {
+  new OpenSearch(region, properties.OPENSEARCH_DOMAIN).getFilter(
+    index,
+    type,
+    filter
+  );
 };
 
 // ElasticSearch

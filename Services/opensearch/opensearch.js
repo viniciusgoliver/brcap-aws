@@ -1,20 +1,20 @@
-require("dotenv").config();
 const AWS = require("aws-sdk");
 const elasticsearch = require("elasticsearch");
-const elasticClient = elasticsearch.Client({
-  hosts: [process.env.OPENSEARCH_DOMAIN],
-  log: "error",
-  version: "7.10",
-});
 
 class OpenSearchService {
-  constructor(region) {
+  constructor(region, domain) {
     AWS.config.update({ region: region });
+
+    this.elasticClient = elasticsearch.Client({
+      hosts: [domain],
+      log: "error",
+      version: "7.10",
+    });
   }
 
   create = async (index, type, body) => {
     try {
-      const data = await elasticClient.index({
+      const data = await this.elasticClient.index({
         index,
         type,
         body,
@@ -28,7 +28,7 @@ class OpenSearchService {
 
   getById = async (index, type, id) => {
     try {
-      const data = await elasticClient.search({
+      const data = await this.elasticClient.search({
         index,
         type,
         body: {
@@ -47,7 +47,7 @@ class OpenSearchService {
 
   getFilter = async (index, type, filter) => {
     try {
-      const data = await elasticClient.search({
+      const data = await this.elasticClient.search({
         index,
         type,
         body: filter,

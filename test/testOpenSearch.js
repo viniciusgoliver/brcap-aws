@@ -1,4 +1,5 @@
 var BRCAPAWS = require("../index.js");
+const properties = require("../properties.json");
 
 /*const dataInsert = {
   Email: "jeferson@jeferson.com",
@@ -8,6 +9,7 @@ var BRCAPAWS = require("../index.js");
 };
 
 BRCAPAWS.OpenSearch_create(
+  properties,
   "teste",
   "contato",
   "us-east-1",
@@ -30,6 +32,7 @@ const dataList = {
 };
 
 BRCAPAWS.OpenSearch_getFilter(
+  properties,
   "teste",
   "contato",
   "us-east-1",
