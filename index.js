@@ -4,7 +4,6 @@ var Redis = require("./Services/cache/Redis");
 var S3 = require("./Services/storage/S3");
 var Dynamo = require("./Services/DataBase/DynamoDB");
 var KMS = require("./Services/secret/Kms");
-let OpenSearch = require("./Services/opensearch/opensearch");
 
 const {
   getIndex,
@@ -176,18 +175,6 @@ exports.Kms_decrypt = function (params, region, callback) {
   new KMS(region).decrypt(params, function (err, data) {
     callback(err, data);
   });
-};
-
-exports.OpenSearch_create = (index, type, region, body) => {
-  new OpenSearch(region).create(index, type, body);
-};
-
-exports.OpenSearch_getById = (index, type, region, id) => {
-  new OpenSearch(region).getById(index, type, id);
-};
-
-exports.OpenSearch_getFilter = (index, type, region, filter) => {
-  new OpenSearch(region).getFilter(index, type, filter);
 };
 
 // ElasticSearch
